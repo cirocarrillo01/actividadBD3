@@ -42,8 +42,8 @@ Para una gestión segura, el script incluye la creación de dos usuarios con rol
     * **Propósito:** Ideal para reportes o consultas que no requieran modificar datos.
 
 ### Comandos de prueba:
+#### SQL
 ```Bash
-SQL
 -- Funciona
 SELECT * FROM docente;
 -- Denegado
