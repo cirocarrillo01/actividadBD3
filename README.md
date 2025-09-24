@@ -53,14 +53,12 @@ INSERT INTO docente (Documento, Nombre) VALUES ('...', '...');
 
     * **Permisos:** Lectura (SELECT), inserción (INSERT) y actualización (UPDATE).
     * **Propósito:** Para desarrolladores o personal que necesite manipular datos, pero no borrarlos.
-    * **Comandos de prueba:**
+### Comandos de prueba:
+#### SQL
 ```bash
-SQL
 -- Funciona
 SELECT * FROM docente;
 INSERT INTO docente (Documento, Nombre) VALUES ('...', '...');
-```
-```bash
 UPDATE docente SET Nombre = '...' WHERE ...;
 -- Denegado
 DELETE FROM docente WHERE ...;
