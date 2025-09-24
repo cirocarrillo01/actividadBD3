@@ -17,26 +17,28 @@
 -- puede conectarse desde cualquier lugar, resolviendo la incompatibilidad de direcciones IP.
 
 -- ACTIVIDAD AGREGAR USUARIO
+
 -- comando de creacion - usuario evidencia:
 CREATE USER 'usuario_evidencia'@'%' IDENTIFIED BY '123456';
--- Asignación de permisos de SELECT en la base de datos proyectos_usuarios
-GRANT SELECT ON proyectos_usuarios.* TO 'usuario_evidencia'@'%';
+-- Asignación de permisos de SELECT en la base de datos proyectos_informaticos
+GRANT SELECT ON proyectos_informaticos.* TO 'usuario_evidencia'@'%';
 
 -- Denegación de permisos de INSERT, UPDATE y DELETE en la misma base de datos
-REVOKE INSERT, UPDATE, DELETE ON proyectos_usuarios.* FROM 'usuario_evidencia'@'%';
+REVOKE INSERT, UPDATE, DELETE ON proyectos_informaticos.* FROM 'usuario_evidencia'@'%';
 FLUSH PRIVILEGES;
 
 -- Comando de Creación - usuario_prueba:
 CREATE USER 'usuario_prueba'@'%' IDENTIFIED BY '654321';
--- Asignación de permisos de SELECT, INSERT, UPDATE en la base de datos proyectos_usuarios
-GRANT SELECT, INSERT, UPDATE ON proyectos_usuarios.* TO 'usuario_prueba'@'%';
+-- Asignación de permisos de SELECT, INSERT, UPDATE en la base de datos proyectos_informaticos
+GRANT SELECT, INSERT, UPDATE ON proyectos_informaticos.* TO 'usuario_prueba'@'%';
 
 -- Denegación de permisos de DELETE en la misma base de datos
-REVOKE DELETE ON proyectos_usuarios.* FROM 'usuario_prueba'@'%';
+REVOKE DELETE ON proyectos_informaticos.* FROM 'usuario_prueba'@'%';
 FLUSH PRIVILEGES;
 
 --  verificar los permisos que tiene un usuario
 SHOW GRANTS FOR 'usuario_evidencia'@'%';
+--  verificar los permisos que tiene un usuario
 SHOW GRANTS FOR 'usuario_prueba'@'%';
 
 -- Comprueba si el usuario existe

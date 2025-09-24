@@ -12,14 +12,13 @@
 
 
 -- creacion de back up de base de datos con CMD
-mysqldump -u root -p proyectos_usuarios > backup_proyectos.sql
-mysqldump -u root -p proyectos_usuarios > "C:\Users\yagam\OneDrive\Escritorio\IUDigital\tercer semestre - 01\bases de datos\base de datos\backup_proyectos.sql"
-
+mysqldump -u root -p proyectos_informaticos > backup_proyectos.sql
+mysqldump -u root -p proyectos_informaticos > "C:\Users\yagam\OneDrive\Escritorio\IUDigital\tercer semestre - 01\bases de datos\base de datos\backup_proyectos.sql"
 /* acidente controlado */
 -- eliminar contenido de la tabla docente, mas no su estructura
-USE proyectos_usuarios;
+USE proyectos_informaticos;
 DELETE FROM docente; -- ¡Cuidado con este comando!
 
 -- restauracion de datos con en backup con CMD
-mysql -u root -p proyectos_usuarios < backup_proyectos.sql
-mysql -u root -p proyectos_usuarios < "C:\Users\yagam\OneDrive\Escritorio\IUDigital\tercer semestre - 01\bases de datos\base de datos\backup_proyectos.sql"
+mysql -u root -p proyectos_informaticos < backup_proyectos.sql
+mysql -u root -p proyectos_informaticos < "C:\Users\yagam\OneDrive\Escritorio\IUDigital\tercer semestre - 01\bases de datos\base de datos\backup_proyectos.sql"

@@ -1,5 +1,5 @@
 
-USE proyectos_usuarios;
+USE proyectos_informaticos;
 INSERT INTO docente (Documento, Nombre, Direccion, Titulo, AnosExperiencia) VALUES
 ('123456789', 'Maria Lopez', 'Calle Falsa 123', 'PhD en Ingenieria de Software', 15),
 ('987654321', 'Juan Perez', 'Avenida Siempreviva 742', 'Maestro en Gerencia de Proyectos', 10),

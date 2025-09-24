@@ -3,8 +3,8 @@
 -- # Basado en el Diagrama Entidad-Relación proporcionado         #
 -- ##################################################################
 
-CREATE DATABASE proyectos_usuarios;
-USE proyectos_usuarios;
+CREATE DATABASE proyectos_informaticos;
+USE proyectos_informaticos;
 -- Creación de la tabla 'docente'
 -- Esta tabla almacena la información de los docentes.
 CREATE TABLE docente (
