@@ -10,8 +10,7 @@ Para configurar la base de datos, simplemente clona este repositorio y ejecuta l
 ### Clona el repositorio:
 
 ```Bash
-git clone [https://github.com/cirocarrillo01/actividadBD3.git](https://github.com/cirocarrillo01/actividadBD3.git)
-cd actividadBD3
+git clone https://github.com/cirocarrillo01/actividadBD3.git
 ```
 ### Ejecuta el script de creación:
 Abre el archivo script.sql en tu cliente de base de datos (como DBeaver o la línea de comandos de MySQL) y ejecútalo. Esto creará la base de datos proyectos_informaticos y todas sus tablas.
