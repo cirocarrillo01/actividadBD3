@@ -76,7 +76,7 @@ mysql -u root -p proyectos_informaticos < backup_proyectos.sql
 ```
 **Nota:** Asegúrate de que no haya conexiones activas a la base de datos antes de restaurarla para evitar errores.
 
-### 📄Estudiante
+### 📄 Estudiante
 * **Nombre:** ciro antonio carrillo mendoza
 * **Curso:** Base de Datos
 * **Semestre:** 3
