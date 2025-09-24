@@ -10,36 +10,42 @@
  * UPDATE: Permite actualizar las filas de las tablas.
  * GRANT OPTION: Permite otorgar o eliminar privilegios de otros usuarios.
  * 
- * FLUSH PRIVILEGES; importante aplicar al final de agregar usuario o modificar
+ * FLUSH PRIVILEGES; importante aplicar de inmediato y los efetos del cambio
  * */
 
--- ACTIVIDAD
+-- Al cambiar el host a %, le estás diciendo a MySQL que 'usuario_evidencia' o 'usuario_prueba'
+-- puede conectarse desde cualquier lugar, resolviendo la incompatibilidad de direcciones IP.
 
+-- ACTIVIDAD AGREGAR USUARIO
 -- comando de creacion - usuario evidencia:
-CREATE USER 'usuario_evidencia'@'localhost' IDENTIFIED BY '123456';
--- asignado permisos
-GRANT SELECT ON proyectos_usuarios.* TO 'usuario_evidencia'@'localhost';
+CREATE USER 'usuario_evidencia'@'%' IDENTIFIED BY '123456';
+-- Asignación de permisos de SELECT en la base de datos proyectos_usuarios
+GRANT SELECT ON proyectos_usuarios.* TO 'usuario_evidencia'@'%';
 
+-- Denegación de permisos de INSERT, UPDATE y DELETE en la misma base de datos
+REVOKE INSERT, UPDATE, DELETE ON proyectos_usuarios.* FROM 'usuario_evidencia'@'%';
+FLUSH PRIVILEGES;
 
 -- Comando de Creación - usuario_prueba:
-CREATE USER 'usuario_prueba'@'localhost' IDENTIFIED BY '654321';
--- Asignación de Permisos:
-GRANT SELECT, INSERT, UPDATE ON proyectos_usuarios.* TO 'usuario_prueba'@'localhost';
+CREATE USER 'usuario_prueba'@'%' IDENTIFIED BY '654321';
+-- Asignación de permisos de SELECT, INSERT, UPDATE en la base de datos proyectos_usuarios
+GRANT SELECT, INSERT, UPDATE ON proyectos_usuarios.* TO 'usuario_prueba'@'%';
 
--- revokar permisos
-REVOKE INSERT, UPDATE ON proyectos_usuarios.* FROM 'usuario_prueba'@'localhost';
+-- Denegación de permisos de DELETE en la misma base de datos
+REVOKE DELETE ON proyectos_usuarios.* FROM 'usuario_prueba'@'%';
+FLUSH PRIVILEGES;
 
 --  verificar los permisos que tiene un usuario
-SHOW GRANTS FOR 'usuario_evidencia'@'localhost';
-SHOW GRANTS FOR 'usuario_prueba'@'localhost';
+SHOW GRANTS FOR 'usuario_evidencia'@'%';
+SHOW GRANTS FOR 'usuario_prueba'@'%';
 
 -- Comprueba si el usuario existe
 SELECT user FROM mysql.user WHERE user = 'usuario_evidencia'; #usuario evidencia
 SELECT user FROM mysql.user WHERE user = 'usuario_prueba'; #usuario prueba
 
 -- Si existe, bórralo
-DROP USER IF EXISTS 'usuario_evidencia'@'localhost';
-DROP USER IF EXISTS 'usuario_prueba'@'localhost';
+DROP USER IF EXISTS 'usuario_evidencia'@'%';
+DROP USER IF EXISTS 'usuario_prueba'@'%';
 
 --  los cambios en los permisos de los usuarios se hagan efectivos al instante
 FLUSH PRIVILEGES;
